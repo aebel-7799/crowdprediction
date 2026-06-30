@@ -7,9 +7,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-// Localhost dev domain — works from Android emulator.
-// Start the backend locally with start_localhost.bat in the backend folder.
-const val BASE_URL = "http://10.0.2.2:5000/"
+// Vercel deployment URL
+const val BASE_URL = "https://crowdprediction.vercel.app/"
 
 object NetworkModule {
 
