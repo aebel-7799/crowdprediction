@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/dashboardFragment" android:title="Dashboard" android:icon="@drawable/ic_dashboard"/>
+    <item android:id="@+id/alertsFragment"    android:title="Alerts"    android:icon="@drawable/ic_alerts"/>
+    <item android:id="@+id/predictionFragment" android:title="Predict"  android:icon="@drawable/ic_predict"/>
+</menu>

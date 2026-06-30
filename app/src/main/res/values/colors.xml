@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#378ADD</color>
+    <color name="colorPrimaryVariant">#185FA5</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#1D9E75</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorBackground">#F5F5F7</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#1C1C1E</color>
+    <color name="colorDanger">#E24B4A</color>
+    <color name="colorWarning">#EF9F27</color>
+    <color name="colorSuccess">#639922</color>
+    <color name="colorInfo">#378ADD</color>
+    <color name="trackColor">#E0E0E0</color>
+    <color name="alertCriticalBg">#FFF0F0</color>
+    <color name="alertWarningBg">#FFFBF0</color>
+    <color name="alertInfoBg">#F0F4FF</color>
+</resources>

@@ -1,0 +1,2 @@
+-keep class com.crowdprediction.data.models.** { *; }
+-keep class com.github.mikephil.charting.** { *; }

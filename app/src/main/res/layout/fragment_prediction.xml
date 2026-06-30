@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <TextView android:text="AI Prediction" android:textSize="22sp" android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface" android:layout_marginBottom="4dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView android:text="ML-based crowd density forecast" android:textSize="13sp"
+            android:textColor="?attr/colorSecondary" android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+        <!-- Zone selector -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="12dp">
+                <TextView android:text="Select zone" android:textSize="12sp"
+                    android:textColor="?attr/colorSecondary" android:layout_marginBottom="6dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <Spinner android:id="@+id/spinner_zone"
+                    android:layout_width="match_parent" android:layout_height="48dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Forecast chart -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="12dp">
+                <TextView android:text="2-hour forecast" android:textSize="13sp"
+                    android:textColor="?attr/colorSecondary" android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <ProgressBar android:id="@+id/progress_bar"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/forecast_chart"
+                    android:layout_width="match_parent" android:layout_height="200dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="10dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Peak time" android:textSize="11sp" android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tv_peak_time" android:text="—" android:textSize="13sp"
+                            android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Peak density" android:textSize="11sp" android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tv_peak_value" android:text="—" android:textSize="13sp"
+                            android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Confidence" android:textSize="11sp" android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tv_confidence" android:text="—" android:textSize="13sp"
+                            android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Risk" android:textSize="11sp" android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tv_risk_level" android:text="—" android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Simulator -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="12dp">
+
+                <TextView android:text="Scenario simulator" android:textSize="14sp"
+                    android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="12dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                <TextView android:text="Event type" android:textSize="12sp"
+                    android:textColor="?attr/colorSecondary" android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <Spinner android:id="@+id/spinner_event_type"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+                    <TextView android:text="Attendees" android:textSize="12sp"
+                        android:textColor="?attr/colorSecondary"
+                        android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/tv_attendees_value" android:text="5,000"
+                        android:textSize="13sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_attendees"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:valueFrom="1000" android:valueTo="20000"
+                    android:stepSize="500" android:value="5000"
+                    android:layout_marginBottom="12dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+                    <TextView android:text="Entry rate (per min)" android:textSize="12sp"
+                        android:textColor="?attr/colorSecondary"
+                        android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/tv_entry_rate_value" android:text="200"
+                        android:textSize="13sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_entry_rate"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:valueFrom="50" android:valueTo="600"
+                    android:stepSize="10" android:value="200"
+                    android:layout_marginBottom="12dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_run_sim"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Run Simulation"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Simulation result -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_sim_result"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="12dp">
+                <TextView android:text="Simulation result" android:textSize="14sp"
+                    android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Time to full" android:textSize="11sp" android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tv_sim_time_to_full" android:text="—"
+                            android:textSize="18sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Peak crowd" android:textSize="11sp" android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tv_sim_peak_crowd" android:text="—"
+                            android:textSize="18sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Risk" android:textSize="11sp" android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tv_sim_risk" android:text="—"
+                            android:textSize="18sp" android:textStyle="bold"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:text="Recommendations" android:textSize="12sp"
+                    android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                    android:layout_marginTop="12dp" android:layout_marginBottom="6dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tv_sim_recommendations"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="13sp" android:textColor="?attr/colorSecondary"
+                    android:lineSpacingMultiplier="1.4"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

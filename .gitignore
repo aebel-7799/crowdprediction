@@ -1,0 +1,28 @@
+# Built artifacts
+build/
+.gradle/
+app/build/
+
+# Local configuration files
+local.properties
+.idea/
+*.iml
+
+# Python / Flask
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Databases and Logs
+backend/crowd.db
+backend/*.log
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+.cursor/
