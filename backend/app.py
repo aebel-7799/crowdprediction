@@ -26,7 +26,15 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "crowd-admin-secret-change-me")
 CORS(app)
 
-DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crowd.db")
+# Check if running in a serverless Vercel environment
+if os.environ.get("VERCEL"):
+    DB_PATH = "/tmp/crowd.db"
+    ORIG_DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crowd.db")
+    if not os.path.exists(DB_PATH) and os.path.exists(ORIG_DB_PATH):
+        import shutil
+        shutil.copy2(ORIG_DB_PATH, DB_PATH)
+else:
+    DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crowd.db")
 
 # ── Admin credentials (web admin page login) ─────────────────────────────────
 ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "jsnk006@gmail.com")
